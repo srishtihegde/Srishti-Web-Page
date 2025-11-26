@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Srishti Hegde | Portfolio</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ffcdf9, #ffe8b5, #c6f8ff, #ffd3e0); animation: bgmove 10s infinite alternate;
+            color: #3c0066;
+        }
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(255,255,255,0.5);
+            backdrop-filter: blur(8px);
+            border-bottom: 3px dashed #ff69b4;
+        }
+        h1 {
+            font-size: 50px;
+            margin: 0;
+        }
+        .tagline {
+            font-size: 18px;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+        nav {
+            text-align: center;
+            padding: 20px;
+            background: #000000cc;
+            border-bottom: 3px dashed #ff69b4;
+        }
+        nav a {
+            color: #ffffff;
+            margin: 10px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        section {
+            padding: 60px 20px;
+            text-align: center;
+            background: #000000cc;
+            color: #ffffff;
+            border-radius: 20px;
+            margin: 30px;
+        }
+        .btn {
+            background: #e60073;
+            padding: 10px 25px;
+            border: none;
+            color: #3c0066;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #0d0d0d;
+            opacity: 0.7;
+        }
+    
+/* Floating bubbles + flowers + sparkles */
+@keyframes float {
+  0% { transform: translateY(0) scale(1); opacity: 0.7; }
+  50% { transform: translateY(-80px) scale(1.2); opacity: 1; }
+  100% { transform: translateY(0) scale(1); opacity: 0.7; }
+}
+
+.bubble, .flower, .spark {
+  position: fixed;
+  animation: float 6s infinite ease-in-out;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.bubble { font-size: 25px; left: 10%; animation-duration: 7s; }
+.bubble:nth-child(2){ left: 40%; animation-duration: 9s; }
+.bubble:nth-child(3){ left: 80%; animation-duration: 6s; }
+
+.flower { font-size: 30px; left: 20%; animation-duration: 11s; }
+.flower:nth-child(2){ left: 70%; animation-duration: 8s; }
+
+.spark { font-size: 18px; left: 50%; animation-duration: 5s; }
+
+/* Smooth fade entrance */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+section, header, nav, footer {
+  animation: fadeInUp 1.2s ease-out;
+}
+
+</style>
+</head>
+<body>
+    <div class="bubble">🫧</div>
+    <div class="bubble">○</div>
+    <div class="bubble">🫧</div>
+
+    <div class="flower">🌸</div>
+    <div class="flower">🌺</div>
+
+    <div class="spark">✨</div>
+    <div class="spark">✧</div>
+    <header>
+        <h1>Srishti Hegde</h1>
+        <p class="tagline">Rider 🚀 | Creator 🎥 | Chaos with Confidence 😎</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            I'm a bold soul with short hair, a loud bike, and a louder personality.
+            I love riding, creating moments, and building things that feel real.
+            Life is too short for small dreams.
+        </p>
+    </section>
+
+    <section id="projects">
+        <h2>Marketing & Learning Journey</h2>
+        <p>
+            I'm currently leveling up in Digital Marketing, Content Strategy, and Meta Ads.
+            I love exploring branding, consumer behavior, and how small ideas turn into big identities.
+            Here are things I'm learning and building:
+        </p>
+        <ul style="list-style:none; padding:0; font-size:18px; line-height:2;">
+            <li>📌 Meta Ads & Social Media Strategy</li>
+            <li>📌 SEO + Copywriting</li>
+            <li>📌 Marketing Analytics</li>
+            <li>📌 Email & CRM marketing</li>
+        </ul>
+    </section>
+
+    <section id=\"contact\">
+        <a href=\"https://www.linkedin.com/in/srishti-hegde-ab1847250\" target=\"_blank\" style=\"display:block; font-size:20px; margin:10px; text-decoration:none; color:#3c0066;\">💼 LinkedIn</a>
+        <a href=\"https://www.instagram.com/Sassy_me01\" target=\"_blank\" style=\"display:block; font-size:20px; margin:10px; text-decoration:none; color:#3c0066;\">📸 Instagram</a>
+
+        <h2>Contact Me</h2>
+        <p>Email: Srishtihegde1@gmail.com</p>
+        <button class="btn">Say Hi 👀</button>
+    </section>
+
+    <footer>
+        <p>© 2025 Srishti Hegde | Built with Confidence</p>
+    </footer>
+</body>
+</html>

@@ -3,6 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Srishti Hegde — Marketing-driven designer & full-stack developer building high-impact campaigns and growth experiences." />
+  <meta name="keywords" content="marketing, design, web developer, growth, campaigns, product design" />
+  <meta name="author" content="Srishti Hegde" />
+  <meta property="og:title" content="Srishti Hegde | Marketing & Design Portfolio" />
+  <meta property="og:description" content="I build high-impact marketing experiences — product pages, campaigns, and analytics that convert." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=2000&auto=format&fit=crop" />
+  <meta property="og:url" content="https://srishtihegde.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Srishti Hegde | Marketing & Design Portfolio" />
+  <meta name="twitter:description" content="I build high-impact marketing experiences — product pages, campaigns, and analytics that convert." />
   <title>Srishti Hegde — Marketing & Design Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -81,6 +91,15 @@
     .card h3{color:var(--muted);margin-bottom:8px}
     .card p{font-size:14px;color:#5f6368}
 
+    /* CTA button animations */
+    .cta-button{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .cta-btn{padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:700;transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);transform:translateY(0);box-shadow:0 4px 12px rgba(26,115,232,0.15)}
+    .cta-btn:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(26,115,232,0.3)}
+    .cta-primary{background:var(--g-blue);color:#fff}
+    .cta-primary:hover{background:#1557b0}
+    .cta-secondary{border:2px solid var(--g-blue);color:var(--g-blue);background:transparent}
+    .cta-secondary:hover{background:rgba(26,115,232,0.08)}
+
     /* Footer */
     footer{text-align:center;padding:18px;color:#70757a;font-size:13px}
 
@@ -112,9 +131,9 @@
       <img src="https://instagram.com/Sassy_me01/profilepicture/?size=l" alt="Srishti Hegde" class="hero-avatar" />
       <h1>Marketing-Driven Design & Growth</h1>
       <p class="lead">I build high-impact marketing experiences — product pages, campaigns, and analytics that convert. This site uses a dynamic marketing photo running subtly behind the content for cinematic depth.</p>
-      <div style="display:flex;gap:12px;justify-content:center">
-        <a href="#projects" style="background:var(--g-blue);color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:700">See Work</a>
-        <a href="#contact" style="border:2px solid var(--g-blue);color:var(--g-blue);padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:700">Contact</a>
+      <div class="cta-button">
+        <a href="#projects" class="cta-btn cta-primary">See Work</a>
+        <a href="#contact" class="cta-btn cta-secondary">Contact</a>
       </div>
     </div>
   </header>
@@ -154,6 +173,16 @@
   </main>
 
   <footer>© 2025 Srishti Hegde • Built for marketing & design</footer>
+
+  <!-- Google Analytics & Tracking -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    // Replace G-XXXXXXXXXX with your actual Google Analytics ID
+    // gtag('config', 'G-XXXXXXXXXX');
+  </script>
 
   <script>
     // Stronger parallax: combine mouse movement and scroll for depth

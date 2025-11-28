@@ -5,112 +5,231 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Srishti Hegde | Portfolio</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+        
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #ffcdf9, #ffe8b5, #c6f8ff, #ffd3e0); animation: bgmove 10s infinite alternate;
+            /* Aesthetic Background Image (Replace with your image path) */
+            background-image: url('https://images.unsplash.com/photo-1542838132-2a7e7182245b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
             color: #3c0066;
         }
+        
+        /* Overlay to make text readable */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.4); 
+            z-index: -1;
+        }
+
         header {
             text-align: center;
             padding: 50px 20px;
-            background: rgba(255,255,255,0.5);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(8px);
-            border-bottom: 3px dashed #ff69b4;
+            border-bottom: 5px solid #ff69b4;
         }
         h1 {
             font-size: 50px;
             margin: 0;
+            color: #e60073;
         }
         .tagline {
-            font-size: 18px;
+            font-size: 22px;
             margin-top: 10px;
-            opacity: 0.8;
+            opacity: 0.9;
+            font-weight: 700;
         }
         nav {
             text-align: center;
             padding: 20px;
-            background: #000000cc;
+            background: #000000e0;
             border-bottom: 3px dashed #ff69b4;
+            position: sticky; /* Keeps navigation visible when scrolling */
+            top: 0;
+            z-index: 1000;
         }
         nav a {
             color: #ffffff;
-            margin: 10px;
+            margin: 10px 20px;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
+            transition: color 0.3s, transform 0.3s;
         }
+        nav a:hover {
+            color: #ff69b4;
+            transform: scale(1.1);
+        }
+        
         section {
             padding: 60px 20px;
             text-align: center;
-            background: #000000cc;
+            background: rgba(0, 0, 0, 0.7);
             color: #ffffff;
             border-radius: 20px;
-            margin: 30px;
+            margin: 30px auto;
+            max-width: 900px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
+
+        h2 {
+            font-size: 36px;
+            color: #ffcdf9;
+            margin-bottom: 30px;
+        }
+
+        /* --- ABOUT SECTION STYLES --- */
+        #about {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #ff69b4;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Added transition for animation */
+        }
+
+        /* NEW: Profile Pic Hover Animation */
+        .profile-pic:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 0 30px 10px #ff69b4; /* Larger, pulsing glow */
+        }
+        
+        .about-text p {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+        
+        /* NEW: Text Underline Animation Classes */
+        .animated-text {
+            position: relative;
+            display: inline-block;
+            cursor: default;
+        }
+        .animated-text::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 3px;
+            background-color: #ff69b4;
+            transition: width 0.4s ease-out;
+        }
+        .animated-text:hover::after {
+            width: 100%;
+        }
+
+        /* --- PROJECTS SECTION STYLES (Hover Effect) --- */
+        .project-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .project-item {
+            position: relative;
+            width: 250px;
+            height: 150px;
+            background: #3c0066;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .project-item:hover {
+            transform: scale(1.05);
+        }
+        .project-details {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(230, 0, 115, 0.95);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: opacity 0.4s, transform 0.4s;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        .project-item:hover .project-details {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- CONTACT SECTION STYLES --- */
+        #contact a {
+            display: inline-block;
+            font-size: 24px;
+            margin: 10px;
+            text-decoration: none;
+            color: #ff69b4;
+            transition: color 0.3s;
+            font-weight: 700;
+        }
+        #contact a:hover {
+            color: #ffe8b5;
+        }
+
         .btn {
             background: #e60073;
-            padding: 10px 25px;
+            padding: 10px 30px;
             border: none;
-            color: #3c0066;
-            font-size: 18px;
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: bold;
             cursor: pointer;
             border-radius: 5px;
-            margin-top: 20px;
+            margin-top: 30px;
+            transition: background 0.3s, transform 0.3s;
         }
+        .btn:hover {
+            background: #ff69b4;
+            transform: scale(1.05);
+        }
+
         footer {
             text-align: center;
             padding: 20px;
-            background: #0d0d0d;
-            opacity: 0.7;
+            background: #0d0d0dcc;
+            color: #fff;
         }
-    
-/* Floating bubbles + flowers + sparkles */
-@keyframes float {
-  0% { transform: translateY(0) scale(1); opacity: 0.7; }
-  50% { transform: translateY(-80px) scale(1.2); opacity: 1; }
-  100% { transform: translateY(0) scale(1); opacity: 0.7; }
-}
-
-.bubble, .flower, .spark {
-  position: fixed;
-  animation: float 6s infinite ease-in-out;
-  pointer-events: none;
-  opacity: 0.7;
-}
-
-.bubble { font-size: 25px; left: 10%; animation-duration: 7s; }
-.bubble:nth-child(2){ left: 40%; animation-duration: 9s; }
-.bubble:nth-child(3){ left: 80%; animation-duration: 6s; }
-
-.flower { font-size: 30px; left: 20%; animation-duration: 11s; }
-.flower:nth-child(2){ left: 70%; animation-duration: 8s; }
-
-.spark { font-size: 18px; left: 50%; animation-duration: 5s; }
-
-/* Smooth fade entrance */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-section, header, nav, footer {
-  animation: fadeInUp 1.2s ease-out;
-}
-
-</style>
+    </style>
 </head>
 <body>
-    <div class="bubble">🫧</div>
-    <div class="bubble">○</div>
-    <div class="bubble">🫧</div>
-
-    <div class="flower">🌸</div>
-    <div class="flower">🌺</div>
-
-    <div class="spark">✨</div>
-    <div class="spark">✧</div>
     <header>
         <h1>Srishti Hegde</h1>
         <p class="tagline">Rider 🚀 | Creator 🎥 | Chaos with Confidence 😎</p>
@@ -124,35 +243,77 @@ section, header, nav, footer {
 
     <section id="about">
         <h2>About Me</h2>
-        <p>
-            I'm a bold soul with short hair, a loud bike, and a louder personality.
-            I love riding, creating moments, and building things that feel real.
-            Life is too short for small dreams.
-        </p>
+        
+        <img src="https://instagram.com/Sassy_me01/profilepicture/?size=l" alt="Srishti Hegde Profile Picture" class="profile-pic" />
+        
+        <div class="about-text">
+            <p>
+                I'm a <span class="animated-text">bold soul</span> with short hair, a loud bike, and a louder personality. 
+                I thrive on adrenaline and creativity, merging the world of high-speed riding with strategic digital creation. 
+                I love riding, crafting authentic moments through video, and building things that feel real and impactful. 
+                Life is too short for small dreams—I chase the big ones with <span class="animated-text">confidence and a touch of chaos.</span>
+            </p>
+        </div>
     </section>
+    
+    <hr>
 
     <section id="projects">
         <h2>Marketing & Learning Journey</h2>
         <p>
-            I'm currently leveling up in Digital Marketing, Content Strategy, and Meta Ads.
-            I love exploring branding, consumer behavior, and how small ideas turn into big identities.
-            Here are things I'm learning and building:
+            I'm currently leveling up in Digital Marketing, Content Strategy, and Meta Ads. 
+            Hover over the cards to see what each area involves!
         </p>
-        <ul style="list-style:none; padding:0; font-size:18px; line-height:2;">
-            <li>📌 Meta Ads & Social Media Strategy</li>
-            <li>📌 SEO + Copywriting</li>
-            <li>📌 Marketing Analytics</li>
-            <li>📌 Email & CRM marketing</li>
+        
+        <ul class="project-list">
+            <li class="project-item">
+                Meta Ads & Social Media Strategy
+                <div class="project-details">
+                    <strong>Meta Ads & Social Media Strategy</strong>
+                    <p>Focusing on campaign creation, audience targeting, budgeting, and performance analysis on platforms like Facebook and Instagram.</p>
+                </div>
+            </li>
+            
+            <li class="project-item">
+                SEO + Copywriting
+                <div class="project-details">
+                    <strong>SEO + Copywriting</strong>
+                    <p>Learning keyword research, on-page optimization, and crafting compelling, conversion-focused content that ranks high in search engines.</p>
+                </div>
+            </li>
+            
+            <li class="project-item">
+                Marketing Analytics
+                <div class="project-details">
+                    <strong>Marketing Analytics</strong>
+                    <p>Mastering tools to track user behavior, measure ROI, and make data-driven decisions to optimize all marketing channels.</p>
+                </div>
+            </li>
+            
+            <li class="project-item">
+                Email & CRM Marketing
+                <div class="project-details">
+                    <strong>Email & CRM Marketing</strong>
+                    <p>Developing segmented email flows, managing customer relationships (CRM), and building customer loyalty and retention strategies.</p>
+                </div>
+            </li>
         </ul>
     </section>
 
-    <section id=\"contact\">
-        <a href=\"https://www.linkedin.com/in/srishti-hegde-ab1847250\" target=\"_blank\" style=\"display:block; font-size:20px; margin:10px; text-decoration:none; color:#3c0066;\">💼 LinkedIn</a>
-        <a href=\"https://www.instagram.com/Sassy_me01\" target=\"_blank\" style=\"display:block; font-size:20px; margin:10px; text-decoration:none; color:#3c0066;\">📸 Instagram</a>
+    <hr>
 
+    <section id="contact">
         <h2>Contact Me</h2>
-        <p>Email: Srishtihegde1@gmail.com</p>
-        <button class="btn">Say Hi 👀</button>
+        <p style="font-size: 20px;">I'm always open to new connections and bold ideas. Let's create some chaos!</p>
+        
+        <p style="font-size: 22px; margin-top: 20px;">Email: <strong>Srishtihegde1@gmail.com</strong></p>
+        
+        <a href="https://www.linkedin.com/in/srishti-hegde-ab1847250" target="_blank">💼 LinkedIn</a>
+        <a href="https://www.instagram.com/Sassy_me01" target="_blank">📸 Instagram</a>
+
+        <a href="mailto:Srishtihegde1@gmail.com">
+            <button class="btn">Say Hi 👀</button>
+        </a>
     </section>
 
     <footer>

@@ -96,6 +96,14 @@
     .cta-secondary{border:2px solid var(--g-blue);color:var(--g-blue);background:transparent}
     .cta-secondary:hover{background:rgba(26,115,232,0.08)}
 
+    /* Slideshow controls */
+    .slideshow-controls{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);display:flex;justify-content:space-between;align-items:center;pointer-events:none;z-index:5;padding:0 12px}
+    .slideshow-btn{pointer-events:auto;background:rgba(0,0,0,0.5);color:#fff;border:none;padding:8px 10px;border-radius:6px;cursor:pointer;font-weight:700;backdrop-filter:blur(4px)}
+    .slideshow-btn:hover{background:rgba(0,0,0,0.65)}
+    .slideshow-dots{position:absolute;left:50%;transform:translateX(-50%);bottom:18px;z-index:6;display:flex;gap:8px}
+    .slideshow-dots .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.5);cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.2)}
+    .slideshow-dots .dot.active{background:#fff}
+
     /* Footer */
     footer{text-align:center;padding:18px;color:#70757a;font-size:13px}
 
@@ -219,8 +227,10 @@
         '/assets/bg5.jpg'
       ];
       let bgIndex = 0;
+      let interval = null;
+      const delay = 6000;
 
-      // Preload images (best-effort)
+      // Preload
       bgImages.forEach(u => { const img = new Image(); img.src = u; });
 
       function setBg(i){
@@ -229,16 +239,54 @@
         setTimeout(()=>{
           window.heroBg.style.backgroundImage = `url('${bgImages[i]}')`;
           window.heroBg.style.opacity = 1;
-        }, 350);
+          updateDots(i);
+        }, 300);
       }
+
+      function nextBg(){ bgIndex = (bgIndex + 1) % bgImages.length; setBg(bgIndex); }
+      function prevBg(){ bgIndex = (bgIndex - 1 + bgImages.length) % bgImages.length; setBg(bgIndex); }
+
+      function startInterval(){ interval = setInterval(nextBg, delay); }
+      function stopInterval(){ if(interval) { clearInterval(interval); interval = null; } }
+
+      function createControls(){
+        const hero = document.querySelector('.hero');
+        if(!hero) return;
+        const controls = document.createElement('div'); controls.className = 'slideshow-controls';
+        const btnPrev = document.createElement('button'); btnPrev.className='slideshow-btn'; btnPrev.innerText='‹'; btnPrev.title='Previous';
+        const btnNext = document.createElement('button'); btnNext.className='slideshow-btn'; btnNext.innerText='›'; btnNext.title='Next';
+        btnPrev.addEventListener('click', ()=>{ prevBg(); resetInterval(); });
+        btnNext.addEventListener('click', ()=>{ nextBg(); resetInterval(); });
+        controls.appendChild(btnPrev); controls.appendChild(btnNext);
+        hero.appendChild(controls);
+
+        // dots
+        const dots = document.createElement('div'); dots.className='slideshow-dots';
+        bgImages.forEach((_, idx)=>{
+          const d = document.createElement('div'); d.className='dot'; d.dataset.index = idx; d.addEventListener('click', (e)=>{ bgIndex = idx; setBg(idx); resetInterval(); });
+          dots.appendChild(d);
+        });
+        hero.appendChild(dots);
+      }
+
+      function updateDots(i){
+        const dots = document.querySelectorAll('.slideshow-dots .dot');
+        dots.forEach((d, idx)=> d.classList.toggle('active', idx===i));
+      }
+
+      function resetInterval(){ stopInterval(); startInterval(); }
 
       // initialize
       if(window.heroBg){
         setBg(bgIndex);
-        setInterval(()=>{
-          bgIndex = (bgIndex + 1) % bgImages.length;
-          setBg(bgIndex);
-        }, 6000);
+        createControls();
+        startInterval();
+        // pause on hover
+        const heroEl = document.querySelector('.hero');
+        if(heroEl){
+          heroEl.addEventListener('mouseenter', ()=>stopInterval());
+          heroEl.addEventListener('mouseleave', ()=>startInterval());
+        }
       }
     })();
   </script>

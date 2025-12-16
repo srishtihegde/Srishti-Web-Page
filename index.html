@@ -6,782 +6,146 @@
     <title>Srishti Hegde | Growth Marketing Specialist</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #1a1a1a;
-            --text-primary: #ffffff;
-            --text-secondary: #a0a0a0;
-            --accent: #3b82f6;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 25px 0;
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 18px;
-            font-weight: 700;
-            color: #ffffff;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-        }
-
-        .nav-links a {
-            color: #a0a0a0;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #ffffff;
-        }
-
-        #home {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 120px 0 80px;
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 900px;
-        }
-
-        .hero-intro {
-            font-size: 14px;
-            color: #a0a0a0;
-            margin-bottom: 30px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        .hero-heading {
-            font-size: clamp(40px, 7vw, 80px);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 40px;
-            color: #ffffff;
-        }
-
-        .hero-roles {
-            font-size: clamp(20px, 3vw, 32px);
-            font-weight: 400;
-            color: #3b82f6;
-            margin-bottom: 50px;
-            min-height: 50px;
-        }
-
-        .role-word {
-            display: none;
-        }
-
-        .role-word.active {
-            display: inline-block;
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .hero-description {
-            font-size: 18px;
-            color: #a0a0a0;
-            max-width: 700px;
-            margin: 0 auto 50px;
-            line-height: 1.8;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 16px 40px;
-            background: transparent;
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border: 2px solid #ffffff;
-            transition: all 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background: #ffffff;
-            color: #0a0a0a;
-        }
-
-        section {
-            padding: 120px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .section-label {
-            font-size: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #a0a0a0;
-            margin-bottom: 30px;
-        }
-
-        h2 {
-            font-size: clamp(32px, 5vw, 52px);
-            font-weight: 700;
-            margin-bottom: 60px;
-            color: #ffffff;
-            line-height: 1.2;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 80px;
-        }
-
-        .about-text {
-            font-size: 18px;
-            color: #a0a0a0;
-            line-height: 1.8;
-        }
-
-        .about-text strong {
-            color: #ffffff;
-        }
-
-        .skills-grid {
-            display: grid;
-            gap: 40px;
-        }
-
-        .skill-item h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: #ffffff;
-        }
-
-        .skill-item p {
-            color: #a0a0a0;
-            font-size: 15px;
-            line-height: 1.7;
-        }
-
-        .experience-item {
-            margin-bottom: 80px;
-            padding-bottom: 80px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .exp-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .exp-title {
-            font-size: 28px;
-            font-weight: 700;
-            color: #ffffff;
-        }
-
-        .exp-year {
-            font-size: 14px;
-            color: #a0a0a0;
-        }
-
-        .exp-company {
-            font-size: 18px;
-            color: #3b82f6;
-            margin-bottom: 20px;
-        }
-
-        .exp-description {
-            font-size: 16px;
-            color: #a0a0a0;
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
-
-        .achievements {
-            display: grid;
-            gap: 15px;
-        }
-
-        .achievement-item {
-            display: flex;
-            gap: 15px;
-        }
-
-        .achievement-bullet {
-            color: #3b82f6;
-            font-size: 18px;
-        }
-
-        .achievement-text {
-            color: #a0a0a0;
-            font-size: 15px;
-        }
-
-        .achievement-text strong {
-            color: #ffffff;
-        }
-
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .education-item {
-            padding: 40px;
-            background: #1a1a1a;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .education-item:hover {
-            border-color: #3b82f6;
-            transform: translateY(-5px);
-        }
-
-        .edu-degree {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
-
-        .edu-field {
-            font-size: 14px;
-            color: #3b82f6;
-            margin-bottom: 15px;
-        }
-
-        .edu-school {
-            font-size: 15px;
-            color: #a0a0a0;
-        }
-
-        .contact-content {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .contact-description {
-            font-size: 18px;
-            color: #a0a0a0;
-            margin-bottom: 50px;
-            line-height: 1.7;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-bottom: 50px;
-        }
-
-        .contact-item {
-            font-size: 16px;
-            color: #a0a0a0;
-        }
-
-        .contact-item strong {
-            color: #ffffff;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-        }
-
-        .social-links a {
-            color: #a0a0a0;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: color 0.3s;
-        }
-
-        .social-links a:hover {
-            color: #3b82f6;
-        }
-
-        footer {
-            text-align: center;
-            padding: 60px 0 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .back-to-top {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #a0a0a0;
-            text-decoration: none;
-            font-size: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .back-to-top:hover {
-            color: #ffffff;
-        }
-
-        .footer-text {
-            font-size: 13px;
-            color: #a0a0a0;
-        }
-
-        /* Custom Cursor */
-        .cursor {
-            width: 20px;
-            height: 20px;
-            border: 2px solid #ffffff;
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: all 0.15s ease;
-            transition-property: width, height, border, background-color;
-            mix-blend-mode: difference;
-        }
-
-        .cursor-follower {
-            width: 40px;
-            height: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9998;
-            transition: all 0.3s ease;
-            mix-blend-mode: difference;
-        }
-
-        .cursor.hover {
-            width: 60px;
-            height: 60px;
-            background-color: rgba(59, 130, 246, 0.2);
-            border-color: #3b82f6;
-        }
-
-        .cursor-follower.hover {
-            width: 80px;
-            height: 80px;
-            border-color: rgba(59, 130, 246, 0.5);
-        }
-
-        body.cursor-active {
-            cursor: none;
-        }
-
-        body.cursor-active a,
-        body.cursor-active button {
-            cursor: none;
-        }
-
-        @media (max-width: 768px) {
-            .cursor,
-            .cursor-follower {
-                display: none;
-            }
-
-            .container {
-                padding: 0 20px;
-            }
-
-            .about-grid,
-            .education-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .nav-links {
-                gap: 20px;
-            }
-
-            .exp-header {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--bg-primary:#0a0a0a;--bg-secondary:#1a1a1a;--text-primary:#fff;--text-secondary:#a0a0a0;--accent:#3b82f6}
+        body{font-family:'Inter',sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.7}
+        .container{max-width:1200px;margin:0 auto;padding:0 40px}
+        nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,10,10,.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.1);padding:25px 0}
+        .nav-content{display:flex;justify-content:space-between;align-items:center}
+        .logo{font-weight:700;color:#fff;text-decoration:none}
+        .nav-links{display:flex;gap:40px}
+        .nav-links a{color:var(--text-secondary);text-decoration:none;font-size:14px;font-weight:500}
+        .nav-links a:hover{color:#fff}
+        section{padding:120px 0;border-top:1px solid rgba(255,255,255,.1)}
+        #home{min-height:100vh;display:flex;align-items:center;justify-content:center;padding-top:140px}
+        .hero-content{text-align:center;max-width:900px}
+        .hero-heading{font-size:clamp(40px,7vw,80px);font-weight:800;margin-bottom:30px}
+        .hero-description{color:var(--text-secondary);font-size:18px;margin-bottom:40px}
+        .cta-button{padding:14px 36px;border:2px solid #fff;color:#fff;text-decoration:none;text-transform:uppercase;font-size:13px;font-weight:600}
+        .cta-button:hover{background:#fff;color:#000}
+        .section-label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--text-secondary);margin-bottom:20px}
+        h2{font-size:clamp(30px,5vw,50px);margin-bottom:50px}
+        .about-grid,.education-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+        .about-text{color:var(--text-secondary);font-size:18px}
+        .experience-item{margin-bottom:80px}
+        .exp-title{font-size:26px;font-weight:700}
+        .exp-company{color:var(--accent);margin-bottom:15px}
+        .achievements{display:grid;gap:12px}
+        .education-item{background:var(--bg-secondary);padding:35px;border:1px solid rgba(255,255,255,.1)}
+        .work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
+        .work-card{background:var(--bg-secondary);padding:20px;border:1px solid rgba(255,255,255,.1)}
+        .work-card img{width:100%;border-radius:6px;margin-bottom:15px}
+        .work-card h3{font-size:18px;margin-bottom:8px}
+        .work-card p{font-size:14px;color:var(--text-secondary)}
+        footer{text-align:center;padding:60px 0;border-top:1px solid rgba(255,255,255,.1)}
+        @media(max-width:768px){.about-grid,.education-grid{grid-template-columns:1fr}.container{padding:0 20px}.nav-links{gap:20px}}
     </style>
 </head>
 <body>
 
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
+<nav>
+  <div class="container nav-content">
+    <a href="#home" class="logo">Srishti Hegde</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#work">Work</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
 
-    <nav>
-        <div class="container nav-content">
-            <a href="#home" class="logo">Srishti Hegde</a>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#experience">Experience</a>
-                <a href="#education">Education</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </div>
-    </nav>
+<section id="home">
+  <div class="container hero-content">
+    <h1 class="hero-heading">Growth Marketing Specialist</h1>
+    <p class="hero-description">I run data‑driven campaigns across WhatsApp, push notifications, in‑app messaging, banners and IVR to drive engagement, retention and ROI.</p>
+    <a href="#work" class="cta-button">View My Work</a>
+  </div>
+</section>
 
-    <section id="home">
-        <div class="container">
-            <div class="hero-content">
-                <p class="hero-intro">Growth Marketing Specialist</p>
-                <h1 class="hero-heading">
-                    An empathetic marketer and data-driven strategist.
-                </h1>
-                <div class="hero-roles">
-                    <span class="role-word active">Campaign Manager</span>
-                    <span class="role-word">Growth Specialist</span>
-                    <span class="role-word">Customer Retention Expert</span>
-                    <span class="role-word">Multi-Channel Marketer</span>
-                </div>
-                <p class="hero-description">
-                    I design and execute PAN-India multi-channel campaigns across push notifications, WhatsApp, in-app messaging, and IVR to drive measurable engagement, retention, and ROI.
-                </p>
-                <a href="#experience" class="cta-button">View My Work</a>
-            </div>
-        </div>
-    </section>
+<section id="about">
+  <div class="container">
+    <p class="section-label">About</p>
+    <h2>Marketing powered by empathy & analytics</h2>
+    <div class="about-grid">
+      <div class="about-text">I’m Srishti Hegde, a growth marketer with hands‑on experience in PAN‑India campaigns. I combine psychology, storytelling and performance data to build strategies that convert and retain users.</div>
+      <div class="about-text">Core skills: Campaign strategy, WhatsApp & push marketing, funnel analysis, CTR & CPL optimization, creative coordination.</div>
+    </div>
+  </div>
+</section>
 
-    <section id="about">
-        <div class="container">
-            <p class="section-label">About Me</p>
-            <h2>Building growth through strategic campaigns and data-driven insights.</h2>
-            
-            <div class="about-grid">
-                <div class="about-text">
-                    <p><strong>Srishti Hegde</strong> is a results-driven growth marketing specialist based in Bengaluru, India. With expertise in managing PAN-India campaigns across multiple channels including push notifications, WhatsApp, in-app messaging, banners, and IVR, I focus on driving customer retention, optimizing conversions, and delivering measurable ROI.</p>
-                    <br>
-                    <p>My approach combines creative strategy with data analytics to build campaigns that resonate with audiences and achieve business objectives.</p>
-                </div>
-                
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <h3>Core Competencies</h3>
-                        <p>Multi-channel Campaign Management • Customer Retention Strategies • Audience Segmentation • Performance Analytics • Content Creation & Optimization</p>
-                    </div>
-                    <div class="skill-item">
-                        <h3>Tech Stack</h3>
-                        <p>Google Analytics • Meta Blueprint • Digital Marketing Platforms • Campaign Management Tools</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="experience">
+  <div class="container">
+    <p class="section-label">Experience</p>
+    <h2>Professional journey</h2>
+    <div class="experience-item">
+      <h3 class="exp-title">Marketing Growth Specialist</h3>
+      <p class="exp-company">Shadowfax · Bengaluru</p>
+      <div class="achievements">
+        <p>→ Improved customer retention by 30% through multi‑channel campaigns</p>
+        <p>→ Increased WhatsApp CTR by 20% with copy & timing optimization</p>
+        <p>→ Supported banners, IVR & in‑app campaign execution</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="experience">
-        <div class="container">
-            <p class="section-label">Professional Experience</p>
-            <h2>Where strategy meets measurable results.</h2>
-            
-            <div class="experience-item">
-                <div class="exp-header">
-                    <div>
-                        <h3 class="exp-title">Marketing Growth Specialist</h3>
-                        <p class="exp-company">Shadowfax • Bengaluru, India</p>
-                    </div>
-                    <span class="exp-year">2024 — Present</span>
-                </div>
-                
-                <p class="exp-description">
-                    Managing and optimizing PAN-India push notifications, in-app messages, and WhatsApp communications to improve engagement and retention. Designing and executing cross-channel marketing campaigns including banners and IVR to increase activation and reduce churn while analyzing campaign performance and collaborating with creative teams.
-                </p>
-                
-                <div class="achievements">
-                    <div class="achievement-item">
-                        <span class="achievement-bullet">→</span>
-                        <p class="achievement-text">Increased customer retention by <strong>30%</strong> through targeted multi-channel engagement strategies</p>
-                    </div>
-                    <div class="achievement-item">
-                        <span class="achievement-bullet">→</span>
-                        <p class="achievement-text">Improved WhatsApp CTR by <strong>20%</strong> via optimized copywriting and strategic timing</p>
-                    </div>
-                    <div class="achievement-item">
-                        <span class="achievement-bullet">→</span>
-                        <p class="achievement-text">Managed YouTube content strategy, achieving <strong>75% growth</strong> in brand visibility</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="work">
+  <div class="container">
+    <p class="section-label">Portfolio</p>
+    <h2>Campaign snapshots & insights</h2>
+    <div class="work-grid">
+      <!-- Replace image paths with your screenshots -->
+      <div class="work-card">
+        <img src="images/instagram-campaign.png" alt="Instagram Campaign">
+        <h3>Instagram Lead Campaign</h3>
+        <p>Cost analysis, CTR tracking and creative performance review.</p>
+      </div>
+      <div class="work-card">
+        <img src="images/whatsapp-push.png" alt="WhatsApp Campaign">
+        <h3>WhatsApp In‑App Push</h3>
+        <p>User engagement optimization and message timing strategy.</p>
+      </div>
+      <div class="work-card">
+        <img src="images/banner-analysis.png" alt="Banner Analysis">
+        <h3>Banner Performance</h3>
+        <p>A/B analysis of creatives and placement effectiveness.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="education">
-        <div class="container">
-            <p class="section-label">Education</p>
-            <h2>Academic foundation for marketing excellence.</h2>
-            
-            <div class="education-grid">
-                <div class="education-item">
-                    <h3 class="edu-degree">Master of Business Administration</h3>
-                    <p class="edu-field">Marketing & HR</p>
-                    <p class="edu-school">Nitte Meenakshi Institute of Technology<br>2022 — 2024</p>
-                </div>
-                
-                <div class="education-item">
-                    <h3 class="edu-degree">Bachelor of Arts</h3>
-                    <p class="edu-field">Journalism, Psychology & English</p>
-                    <p class="edu-school">Alvas Degree College<br>2019 — 2022</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="education">
+  <div class="container">
+    <p class="section-label">Education</p>
+    <h2>Academic background</h2>
+    <div class="education-grid">
+      <div class="education-item">
+        <h3>MBA – Marketing & HR</h3>
+        <p>Nitte Meenakshi Institute of Technology (2022–2024)</p>
+      </div>
+      <div class="education-item">
+        <h3>BA – Journalism, Psychology & English</h3>
+        <p>Alva’s Degree College (2019–2022)</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="contact">
-        <div class="container">
-            <div class="contact-content">
-                <p class="section-label">Get In Touch</p>
-                <h2>Let's talk strategy and growth.</h2>
-                
-                <p class="contact-description">
-                    I'm always open to new connections and growth opportunities. Whether you want to discuss marketing strategies, collaborate on campaigns, or just connect.
-                </p>
-                
-                <div class="contact-info">
-                    <p class="contact-item">📧 <strong>srishtihegde1@gmail.com</strong></p>
-                    <p class="contact-item">📱 <strong>+91 9632649609</strong></p>
-                </div>
+<section id="contact">
+  <div class="container" style="text-align:center">
+    <p class="section-label">Contact</p>
+    <h2>Let’s connect</h2>
+    <p style="color:var(--text-secondary);margin-bottom:30px">Open to UAE & global marketing opportunities</p>
+    <p>📧 srishtihegde1@gmail.com</p>
+    <p>📱 +91 9632649609</p>
+  </div>
+</section>
 
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/srishti-hegde-ab1847250" target="_blank">LinkedIn</a>
-                    <a href="https://www.instagram.com/Sassy_me01" target="_blank">Instagram</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<footer>
+  <p>© 2025 Srishti Hegde · Growth Marketing Portfolio</p>
+</footer>
 
-    <footer>
-        <div class="container">
-            <a href="#home" class="back-to-top">Back to Top ↑</a>
-            <p class="footer-text">&copy; 2025 Srishti Hegde. Built with focus and clarity.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Custom Cursor
-        const cursor = document.querySelector('.cursor');
-        const follower = document.querySelector('.cursor-follower');
-        
-        let mouseX = 0;
-        let mouseY = 0;
-        let followerX = 0;
-        let followerY = 0;
-
-        // Move cursor
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            
-            cursor.style.left = mouseX + 'px';
-            cursor.style.top = mouseY + 'px';
-        });
-
-        // Smooth follower animation
-        function animateFollower() {
-            const distX = mouseX - followerX;
-            const distY = mouseY - followerY;
-            
-            followerX += distX / 10;
-            followerY += distY / 10;
-            
-            follower.style.left = followerX + 'px';
-            follower.style.top = followerY + 'px';
-            
-            requestAnimationFrame(animateFollower);
-        }
-        animateFollower();
-
-        // Add cursor active class
-        document.body.classList.add('cursor-active');
-
-        // Hover effects on interactive elements
-        const hoverElements = document.querySelectorAll('a, button, .cta-button, .education-item');
-        
-        hoverElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursor.classList.add('hover');
-                follower.classList.add('hover');
-            });
-            
-            el.addEventListener('mouseleave', () => {
-                cursor.classList.remove('hover');
-                follower.classList.remove('hover');
-            });
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        // Rotating role words
-        const roleWords = document.querySelectorAll('.role-word');
-        let currentIndex = 0;
-        
-        function rotateRoles() {
-            roleWords.forEach(word => word.classList.remove('active'));
-            roleWords[currentIndex].classList.add('active');
-            currentIndex = (currentIndex + 1) % roleWords.length;
-        }
-        
-        setInterval(rotateRoles, 3000);
-    </script>
 </body>
 </html>
-<section id="work">
-    <div class="container">
-        <p class="section-label">Selected Work</p>
-        <h2>Campaigns, creatives, and performance insights.</h2>
-
-        <!-- CASE STUDY 1 -->
-        <div class="experience-item">
-            <div class="exp-header">
-                <div>
-                    <h3 class="exp-title">Instagram & WhatsApp Lead Generation Campaign</h3>
-                    <p class="exp-company">Growth Marketing • Campaign Support</p>
-                </div>
-                <span class="exp-year">2024</span>
-            </div>
-
-            <p class="exp-description">
-                Supported end-to-end execution of Instagram and WhatsApp campaigns focused on lead generation.
-                Worked closely with creatives, analyzed cost metrics, and optimized messaging to improve engagement and conversions.
-            </p>
-
-            <div class="achievements">
-                <div class="achievement-item">
-                    <span class="achievement-bullet">→</span>
-                    <p class="achievement-text">
-                        <strong>Objective:</strong> Drive qualified leads through Instagram ads and WhatsApp in-app promotions
-                    </p>
-                </div>
-                <div class="achievement-item">
-                    <span class="achievement-bullet">→</span>
-                    <p class="achievement-text">
-                        <strong>My Role:</strong> Campaign support, banner coordination, cost & performance analysis
-                    </p>
-                </div>
-                <div class="achievement-item">
-                    <span class="achievement-bullet">→</span>
-                    <p class="achievement-text">
-                        <strong>Key Metrics:</strong> Cost per lead, CTR, reach, engagement
-                    </p>
-                </div>
-            </div>
-
-            <!-- ADD SCREENSHOTS HERE -->
-            <div style="margin-top:40px;">
-                <p class="section-label">Campaign Screenshots</p>
-
-                <!-- ADD YOUR IMAGE LINKS BELOW -->
-                <!-- Example -->
-                <!-- <img src="YOUR-SCREENSHOT-LINK-HERE" alt="Instagram Campaign Analysis" style="width:100%; margin-bottom:20px;"> -->
-
-                <!-- ADD MORE SCREENSHOTS AS NEEDED -->
-            </div>
-
-            <p class="exp-description" style="margin-top:30px;">
-                <strong>Insights & Learnings:</strong><br>
-                Identified cost-efficient creatives, improved CTA clarity, and optimized timing for WhatsApp follow-ups,
-                resulting in better engagement and improved lead quality.
-            </p>
-        </div>
-
-        <!-- CASE STUDY 2 -->
-        <div class="experience-item">
-            <div class="exp-header">
-                <div>
-                    <h3 class="exp-title">In-App Messaging & Banner Campaigns</h3>
-                    <p class="exp-company">Retention & Engagement</p>
-                </div>
-                <span class="exp-year">2024</span>
-            </div>
-
-            <p class="exp-description">
-                Worked on in-app notifications and banner placements to improve customer activation and retention
-                across multiple user journeys.
-            </p>
-
-            <div class="achievements">
-                <div class="achievement-item">
-                    <span class="achievement-bullet">→</span>
-                    <p class="achievement-text">
-                        <strong>Channels:</strong> In-app messages, banners, push notifications
-                    </p>
-                </div>
-                <div class="achievement-item">
-                    <span class="achievement-bullet">→</span>
-                    <p class="achievement-text">
-                        <strong>Focus:</strong> User engagement, repeat actions, drop-off reduction
-                    </p>
-                </div>
-            </div>
-
-            <!-- ADD SCREENSHOTS HERE -->
-            <div style="margin-top:40px;">
-                <p class="section-label">Creative & Performance Samples</p>
-
-                <!-- ADD YOUR IMAGE LINKS BELOW -->
-                <!-- <img src="YOUR-SCREENSHOT-LINK-HERE" alt="In-App Campaign" style="width:100%; margin-bottom:20px;"> -->
-            </div>
-
-            <p class="exp-description" style="margin-top:30px;">
-                <strong>What Worked:</strong><br>
-                Clear copy, contextual messaging, and user-stage targeting significantly improved interaction rates.
-            </p>
-        </div>
-    </div>
-</section>

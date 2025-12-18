@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Srishti Hegde | Marketing & Communication Specialist</title>
+  <title>Srishti Hegde | Marketing & Communication Specialist | CRM & Digital Campaigns</title>
+<meta name="description" content="Srishti Hegde – Marketing & Communication Specialist skilled in CRM, WhatsApp marketing, push notifications, and digital campaigns. Open to global opportunities." />
+<meta name="keywords" content="Marketing Specialist, CRM Marketing, WhatsApp Campaigns, Digital Marketing Portfolio, Growth Marketing" />
+<meta name="author" content="Srishti Hegde" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
@@ -14,30 +17,53 @@
       --muted:#9ca3af;
       --accent:#3b82f6;
     }
-    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;cursor:url('https://cur.cursors-4u.net/symbols/sym-1/sym42.cur'),auto}
     .container{max-width:1200px;margin:0 auto;padding:0 40px}
+
+    /* NAV */
     nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(11,11,11,.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
     .nav-content{display:flex;justify-content:space-between;align-items:center;padding:24px 0}
     .logo{font-weight:700;color:#fff;text-decoration:none}
     .nav-links{display:flex;gap:36px}
-    .nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500}
+    .nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;position:relative}
+    .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--accent);transition:width .3s ease}
     .nav-links a:hover{color:#fff}
-    section{padding:120px 0;border-top:1px solid rgba(255,255,255,.08)}
+    .nav-links a:hover::after{width:100%}
+
+    /* SECTIONS */
+    section{padding:120px 0;border-top:1px solid rgba(255,255,255,.08);opacity:0;transform:translateY(40px);transition:all 1s ease}
+    section.visible{opacity:1;transform:translateY(0)}
+
     #home{min-height:100vh;display:flex;align-items:center;justify-content:center;padding-top:160px}
-    .hero{text-align:center;max-width:900px}
+    .hero{text-align:center;max-width:900px;position:relative;z-index:2}
     .hero img{width:160px;height:160px;border-radius:50%;border:3px solid var(--accent);margin-bottom:32px;object-fit:cover}
     .hero h1{font-size:clamp(38px,6vw,72px);font-weight:800;margin-bottom:24px}
     .hero h1 span{display:block;font-size:22px;color:var(--muted);font-weight:400;margin-top:8px}
     .hero p{color:var(--muted);font-size:18px;margin-bottom:40px}
-    .btn{display:inline-block;padding:14px 36px;border:2px solid #fff;color:#fff;text-decoration:none;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px}
+
+    /* BUTTON */
+    .btn{display:inline-block;padding:14px 36px;border:2px solid #fff;color:#fff;text-decoration:none;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;position:relative;overflow:hidden;transition:all .4s ease}
+    .btn::before{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);transition:all .6s ease}
+    .btn:hover::before{left:100%}
     .btn:hover{background:#fff;color:#000}
+
+    /* TEXT + GRID */
     .label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:20px}
     h2{font-size:clamp(30px,5vw,50px);margin-bottom:50px}
     .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:60px}
     .text{color:var(--muted);font-size:18px}
-    .card{background:var(--card);border:1px solid rgba(255,255,255,.1);padding:32px;border-radius:12px}
+
+    /* CARDS */
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.1);padding:32px;border-radius:12px;transition:transform .4s ease, box-shadow .4s ease, border-color .4s ease}
+    .card:hover{transform:translateY(-10px) scale(1.02);box-shadow:0 20px 50px rgba(59,130,246,.25);border-color:var(--accent)}
     .stack{display:grid;gap:24px}
+
+    /* FOOTER */
     footer{text-align:center;padding:60px 0;border-top:1px solid rgba(255,255,255,.08);color:var(--muted)}
+
+    /* MOUSE GLOW */
+    .mouse-glow{position:fixed;width:220px;height:220px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(59,130,246,.25),transparent 70%);transform:translate(-50%,-50%);z-index:1}
+
     @media(max-width:768px){.grid-2{grid-template-columns:1fr}.container{padding:0 20px}.nav-links{gap:18px}}
   </style>
 </head>
@@ -59,75 +85,63 @@
 <section id="home">
   <div class="container hero">
     <img src="https://drive.google.com/uc?export=view&id=1n63FkR0tG0eJ5ngSEmSw5mHwk_zbtu0y" alt="Srishti Hegde">
-    <h1>
-      Marketing & Communication Specialist
-      <span>CRM & Digital Campaigns</span>
-    </h1>
-    <p>An empathetic marketer blending communication psychology with data‑driven CRM and digital campaigns to build meaningful, high‑impact user experiences.</p>
+    <h1>Marketing & Communication Specialist<span>CRM & Digital Campaigns</span></h1>
+    <p>An empathetic marketer blending communication psychology with data-driven CRM and digital campaigns to build meaningful, high-impact user experiences.</p>
     <a href="#work" class="btn">View My Work</a>
   </div>
 </section>
 
-<section id="about">
-  <div class="container">
-    <p class="label">About</p>
-    <h2>Marketing powered by empathy & analytics</h2>
-    <div class="grid-2">
-      <p class="text">I’m Srishti Hegde, a marketing and communication specialist with hands‑on experience managing PAN‑India CRM and digital campaigns across WhatsApp, push notifications, in‑app messaging, banners and IVR.</p>
-      <p class="text">I combine psychology, storytelling and performance data to design campaigns that improve engagement, retention and long‑term user value.</p>
-    </div>
-  </div>
-</section>
+<section id="about"><div class="container"><p class="label">About</p><h2>Marketing powered by empathy & analytics</h2><div class="grid-2"><p class="text">I’m Srishti Hegde, a marketing and communication specialist with hands-on experience managing PAN-India CRM and digital campaigns across WhatsApp, push notifications, in-app messaging, banners and IVR.</p><p class="text">I combine psychology, storytelling and performance data to design campaigns that improve engagement, retention and long-term user value.</p></div></div></section>
 
-<section id="experience">
+<section id="skills">
   <div class="container">
-    <p class="label">Experience</p>
-    <h2>Professional journey</h2>
-    <div class="card">
-      <h3>Marketing Growth Specialist — Shadowfax</h3>
-      <p class="text">Improved customer retention by 30% through multi‑channel CRM campaigns · Increased WhatsApp CTR by 20% · Supported banner, IVR and in‑app executions across PAN‑India markets.</p>
-    </div>
-  </div>
-</section>
-
-<section id="work">
-  <div class="container">
-    <p class="label">Portfolio</p>
-    <h2>Campaigns & Work</h2>
+    <p class="label">Skills</p>
+    <h2>Core marketing toolkit</h2>
     <div class="stack">
-      <div class="card"><h3>📲 WhatsApp & In‑App Campaigns</h3><p class="text">Segmentation, personalization, CTR optimization and retention strategy.</p></div>
-      <div class="card"><h3>🚀 Push Notifications</h3><p class="text">Data‑driven timing, copy testing and re‑engagement workflows.</p></div>
-      <div class="card"><h3>🎨 Creative & Banner Performance</h3><p class="text">Creative coordination, A/B testing and performance analysis.</p></div>
-    </div>
-    <a class="btn" style="margin-top:40px" href="https://drive.google.com/file/d/1yXN1okLNUfZZTl1tls9RlZ3F40E6r7xX/view" target="_blank">View Campaign Screenshots</a>
-  </div>
-</section>
-
-<section id="education">
-  <div class="container">
-    <p class="label">Education</p>
-    <h2>Academic background</h2>
-    <div class="grid-2">
-      <div class="card"><h3>MBA — Marketing & HR</h3><p class="text">Nitte Meenakshi Institute of Technology (2022–2024)</p></div>
-      <div class="card"><h3>BA — Journalism, Psychology & English</h3><p class="text">Alva’s Degree College (2019–2022)</p></div>
+      <div class="skill-pill">CRM Campaign Strategy</div>
+      <div class="skill-pill">WhatsApp Marketing</div>
+      <div class="skill-pill">Push Notifications</div>
+      <div class="skill-pill">In‑App Messaging</div>
+      <div class="skill-pill">Funnel Analysis</div>
+      <div class="skill-pill">CTR & Retention Optimization</div>
+      <div class="skill-pill">Creative Coordination</div>
+      <div class="skill-pill">Campaign Analytics</div>
     </div>
   </div>
 </section>
 
-<section id="contact">
-  <div class="container" style="text-align:center">
-    <p class="label">Contact</p>
-    <h2>Let’s connect</h2>
-    <p class="text" style="margin-bottom:30px">Open to UAE & global marketing opportunities</p>
-    <p>📧 srishtihegde1@gmail.com</p>
-    <p>📸 <a href="https://www.instagram.com/Sassy_me01" target="_blank" style="color:var(--accent)">Instagram</a></p>
-    <p>📄 <a href="https://drive.google.com/file/d/12c7dIJFUUWLF5t-XzMz1XmCvOFnT2Ohk/view" target="_blank" style="color:var(--accent)">View Resume</a></p>
-  </div>
-</section>
+<section id="experience"><div class="container"><p class="label">Experience</p><h2>Professional journey</h2><div class="card"><h3>Marketing Growth Specialist — Shadowfax</h3><p class="text">Improved customer retention by 30% · Increased WhatsApp CTR by 20% · Supported banner, IVR & in-app executions.</p></div></div></section>
 
-<footer>
-  <p>© 2025 Srishti Hegde · Marketing & Communication Portfolio</p>
-</footer>
+<section id="work"><div class="container"><p class="label">Portfolio</p><h2>Campaigns & Work</h2><div class="stack"><div class="card"><h3>📲 WhatsApp & In-App Campaigns</h3><p class="text">Segmentation, personalization, CTR optimization.</p></div><div class="card"><h3>🚀 Push Notifications</h3><p class="text">Timing strategy, copy testing, retention flows.</p></div><div class="card"><h3>🎨 Creative & Banner Performance</h3><p class="text">A/B testing and creative performance analysis.</p></div></div><a class="btn" style="margin-top:40px" href="https://drive.google.com/drive/folders/1i9F4Sl5TtGgSNXe6u2QQDbVItKxzwgqQ?usp=sharing" target="_blank">View Campaign Screenshots</a>
+<a class="btn" style="margin-top:20px;margin-left:12px" href="https://drive.google.com/uc?export=download&id=12c7dIJFUUWLF5t-XzMz1XmCvOFnT2Ohk" target="_blank">Download CV</a></div></section>
+
+<section id="education"><div class="container"><p class="label">Education</p><h2>Academic background</h2><div class="grid-2"><div class="card"><h3>MBA — Marketing & HR</h3><p class="text">NMIT (2022–2024)</p></div><div class="card"><h3>BA — Journalism, Psychology & English</h3><p class="text">Alva’s Degree College (2019–2022)</p></div></div></div></section>
+
+<section id="contact"><div class="container" style="text-align:center"><p class="label">Contact</p><h2>Let’s connect</h2><p class="text" style="margin-bottom:30px">Open to UAE & global opportunities</p><p>📧 srishtihegde1@gmail.com</p><p>📸 <a href="https://www.instagram.com/Sassy_me01" target="_blank" style="color:var(--accent)">Instagram</a></p><p>📄 <a href="https://drive.google.com/file/d/12c7dIJFUUWLF5t-XzMz1XmCvOFnT2Ohk/view" target="_blank" style="color:var(--accent)">View Resume</a></p></div></section>
+
+<footer><p>© 2025 Srishti Hegde · Marketing & Communication Portfolio</p></footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Scroll reveal
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+    sections.forEach(sec => observer.observe(sec));
+
+    // Mouse glow
+    const glow = document.createElement('div');
+    glow.className = 'mouse-glow';
+    document.body.appendChild(glow);
+    document.addEventListener('mousemove', e => {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+  });
+</script>
 
 </body>
 </html>
